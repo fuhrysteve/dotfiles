@@ -6,6 +6,11 @@
 ######################################################################
 
 export PATH=$HOME/env/bin:$PATH
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+    then
+	export WORKON_HOME=~/.virtualenvs
+	source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
