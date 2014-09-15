@@ -6,10 +6,15 @@
 ######################################################################
 
 export PATH=$HOME/env/bin:$PATH
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]
-    then
-	export WORKON_HOME=~/.virtualenvs
-	source /usr/local/bin/virtualenvwrapper.sh
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    if [ -d $HOME/repos ]; then
+        export PROJECT_HOME=$HOME/repos
+    elif [ -d $HOME/projects ]; then
+        export PROJECT_HOME=$HOME/projects
+    fi  
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 bindkey '\e[A' history-search-backward
